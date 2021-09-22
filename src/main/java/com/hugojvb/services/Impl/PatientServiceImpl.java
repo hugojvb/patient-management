@@ -7,10 +7,12 @@ import com.hugojvb.repositories.PatientRepository;
 import com.hugojvb.services.PatientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
+@Service
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
@@ -18,7 +20,6 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<Patient> getAllPatients() {
-
-        return null;
+        return patientRepository.findAll();
     }
 }
