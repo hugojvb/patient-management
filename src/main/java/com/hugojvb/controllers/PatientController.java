@@ -1,5 +1,6 @@
 package com.hugojvb.controllers;
 
+import com.hugojvb.models.Patient;
 import com.hugojvb.services.PatientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,12 @@ public class PatientController {
 
 		return "patients";
 	}
+
+	@GetMapping("/new")
+	public String addPatient(Model model) {
+		Patient newPatient = new Patient();
+		model.addAttribute("patient", newPatient);
+		return "create_patient";
+	}
+
 }
