@@ -15,11 +15,17 @@ import lombok.AllArgsConstructor;
 @Service
 public class PatientServiceImpl implements PatientService {
 
-    @Autowired
-    private PatientRepository patientRepository;
+	@Autowired
+	private PatientRepository patientRepository;
 
-    @Override
-    public List<Patient> getAllPatients() {
-        return patientRepository.findAll();
-    }
+	@Override
+	public List<Patient> getAllPatients() {
+		return patientRepository.findAll();
+	}
+
+	@Override
+	public Patient savePatient(Patient patient) {
+		return patientRepository.save(patient);
+	}
+
 }

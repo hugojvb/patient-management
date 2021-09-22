@@ -5,5 +5,7 @@ import com.hugojvb.models.Patient;
 import java.util.List;
 
 public interface PatientService {
-    List<Patient> getAllPatients();
+	List<Patient> getAllPatients();
+
+	Patient savePatient(Patient patient);
 }
