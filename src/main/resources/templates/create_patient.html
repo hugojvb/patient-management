@@ -14,12 +14,37 @@
 				<h2 class="title">Adicionar Novo Utente</h2>
 			</header>
 			<div class="card-content">
-				<form th:action="@{/patients}" th:object="${patient}">
-					
+				<form th:action="@{/patients}" th:object="${patient}" method="POST">
+					<div class="field">
+						<label for="firstName" class="label">
+							Nome Próprio
+						</label>
+						<div class="control">
+							<input type="text" name="firstName" th:field="firstName" id="firstName" class="input" placeholder="Nome Próprio do Utente..."/>
+						</div>
+					</div>
+					<div class="field">
+						<label for="lastName" class="label">
+							Sobrenome
+						</label>
+						<div class="control">
+							<input type="text" name="lastName" th:field="lastName" id="lastName" class="input" placeholder="Sobrenome do Utente..."/>
+						</div>
+					</div>
+					<div class="field">
+						<label for="age" class="label">
+							Idade
+						</label>
+						<div class="control">
+							<input type="text" name="age" th:field="age" id="age" class="input" placeholder="Idade do Utente..."/>
+						</div>
+					</div>
 				</form>
 			</div>
+			<div class="card-footer">
+				<button type="submit" class="button is-primary">Adicionar</button>
+			</div>
 		</div>
-	</div>
-	
+	</div>	
 </body>
 </html>
