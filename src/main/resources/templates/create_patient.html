@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,18 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <body>
+	<div class="container">
+		<div class="card">
+			<header class="card-header">
+				<h2 class="title">Adicionar Novo Utente</h2>
+			</header>
+			<div class="card-content">
+				<form th:action="@{/patients}" th:object="${patient}">
+					
+				</form>
+			</div>
+		</div>
+	</div>
 	
 </body>
 </html>
