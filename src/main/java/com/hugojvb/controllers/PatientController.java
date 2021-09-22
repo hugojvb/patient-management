@@ -15,14 +15,13 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/patients")
 public class PatientController {
 
-    @Autowired
-    private PatientService patientService;
+	@Autowired
+	private PatientService patientService;
 
-    @GetMapping
-    public String patients(Model model) {
-        model.addAttribute("patients", patientService.getAllPatients());
+	@GetMapping
+	public String patients(Model model) {
+		model.addAttribute("patients", patientService.getAllPatients());
 
-        return "patients";
-    }
-
+		return "patients";
+	}
 }
