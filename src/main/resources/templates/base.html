@@ -10,12 +10,9 @@
 		<div th:fragment="navbar">
 			<nav class="navbar" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
-					<a class="navbar-item" href="#">
-						<img
-							src="https://bulma.io/images/bulma-logo.png"
-							width="112"
-							height="28"
-						/>
+					<a class="navbar-item" href="/">
+						<img th:src="@{/heart.svg}" alt="heart" />
+						<h1 class="title ml-2">Gestão de Utentes</h1>
 					</a>
 
 					<a
@@ -32,23 +29,26 @@
 				</div>
 
 				<div id="navbar" class="navbar-menu">
-					<div class="navbar-start">
-						<a class="navbar-item"> Home </a>
+					<div class="navbar-start"></div>
 
+					<div class="navbar-end">
 						<div class="navbar-item has-dropdown is-hoverable">
 							<a class="navbar-link"> Pacientes </a>
 
 							<div class="navbar-dropdown">
-								<a class="navbar-item"> Adicionar </a>
-								<a class="navbar-item"> Jobs </a>
-								<a class="navbar-item"> Contact </a>
+								<a class="navbar-item" th:href="@{/patients}">
+									Ver Todos
+								</a>
+								<a
+									class="navbar-item"
+									th:href="@{/patients/add}"
+								>
+									Adicionar
+								</a>
 								<hr class="navbar-divider" />
-								<a class="navbar-item"> Report an issue </a>
+								<a class="navbar-item"> A decidir </a>
 							</div>
 						</div>
-					</div>
-
-					<div class="navbar-end">
 						<div class="navbar-item">
 							<div class="buttons">
 								<a class="button is-primary">
