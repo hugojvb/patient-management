@@ -31,9 +31,9 @@
 				</thead>
 				<tbody>
 					<tr th:each="patient: ${patients}">
-						<td th:text="patient.first_name"></td>
-						<td th:text="patient.last_name"></td>
-						<td th:text="patient.age"></td>
+						<td th:text="${patient.firstName}"></td>
+						<td th:text="${patient.lastName}"></td>
+						<td th:text="${patient.age}"></td>
 					</tr>
 				</tbody>
 			</table>

@@ -10,65 +10,74 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
+			<a th:href="@{/patients}" class="button is-link"> Voltar </a>
+			<hr />
 			<div class="card">
-				<header class="card-header">
+				<header class="card-header-title">
 					<h2 class="title">Adicionar Novo Utente</h2>
 				</header>
 				<div class="card-content">
-					<form
-						th:action="@{/patients}"
-						th:object="${patient}"
-						method="POST"
-					>
-						<div class="field">
-							<label for="firstName" class="label">
-								Nome Próprio
-							</label>
-							<div class="control">
-								<input
-									type="text"
-									name="firstName"
-									th:field="*{firstName}"
-									id="firstName"
-									class="input"
-									placeholder="Nome Próprio do Utente..."
-								/>
+					<div class="content">
+						<form
+							th:action="@{/patients}"
+							th:object="${patient}"
+							method="POST"
+						>
+							<div class="field">
+								<label for="firstName" class="label">
+									Nome Próprio
+								</label>
+								<div class="control">
+									<input
+										type="text"
+										name="firstName"
+										th:field="*{firstName}"
+										id="firstName"
+										class="input"
+										placeholder="Nome Próprio do Utente..."
+										required
+									/>
+								</div>
 							</div>
-						</div>
-						<div class="field">
-							<label for="lastName" class="label">
-								Sobrenome
-							</label>
-							<div class="control">
-								<input
-									type="text"
-									name="lastName"
-									th:field="*{lastName}"
-									id="lastName"
-									class="input"
-									placeholder="Sobrenome do Utente..."
-								/>
+							<div class="field">
+								<label for="lastName" class="label">
+									Sobrenome
+								</label>
+								<div class="control">
+									<input
+										type="text"
+										name="lastName"
+										th:field="*{lastName}"
+										id="lastName"
+										class="input"
+										placeholder="Sobrenome do Utente..."
+										required
+									/>
+								</div>
 							</div>
-						</div>
-						<div class="field">
-							<label for="age" class="label"> Idade </label>
-							<div class="control">
-								<input
-									type="text"
-									name="age"
-									th:field="*{age}"
-									id="age"
-									class="input"
-									placeholder="Idade do Utente..."
-								/>
+							<div class="field">
+								<label for="age" class="label"> Idade </label>
+								<div class="control">
+									<input
+										type="text"
+										name="age"
+										th:field="*{age}"
+										id="age"
+										class="input"
+										placeholder="Idade do Utente..."
+										required
+									/>
+								</div>
 							</div>
-						</div>
-					</form>
-				</div>
-				<div class="card-footer">
-					<button type="submit" class="button is-link">
-						Adicionar
-					</button>
+							<br />
+							<button
+								type="submit"
+								class="button is-link card-footer-item"
+							>
+								Adicionar
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

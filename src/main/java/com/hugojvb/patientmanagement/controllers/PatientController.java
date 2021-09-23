@@ -33,7 +33,7 @@ public class PatientController {
 		return "create_patient";
 	}
 
-	@PostMapping
+	@PostMapping("/patients")
 	public String savePatient(@ModelAttribute("patient") Patient patient) {
 		patientService.savePatient(patient);
 		return "redirect:/patients";
