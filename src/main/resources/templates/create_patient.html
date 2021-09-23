@@ -10,7 +10,7 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
-			<a th:href="@{/patients}" class="button is-link"> Voltar </a>
+			<a th:href="@{/patients}" class="button is-primary"> Voltar </a>
 			<hr />
 			<div class="card">
 				<header class="card-header-title">
@@ -33,7 +33,7 @@
 										name="firstName"
 										th:field="*{firstName}"
 										id="firstName"
-										class="input"
+										class="input is-primary"
 										placeholder="Nome do Utente..."
 										required
 									/>
@@ -72,8 +72,9 @@
 							<br />
 							<button
 								type="submit"
-								class="button is-link card-footer-item"
+								class="button is-primary card-footer-item"
 							>
+								<i class="fa fa-plus mr-2"></i>
 								Adicionar
 							</button>
 						</form>

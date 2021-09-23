@@ -1,0 +1,17 @@
+:root {
+	--primary-color: orange;
+}
+
+::selection {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+.is-primary.input {
+	border-color: var(--primary-color);
+}
+
+.is-primary.button,
+.is-primary.button:hover {
+	background-color: var(--primary-color);
+}
