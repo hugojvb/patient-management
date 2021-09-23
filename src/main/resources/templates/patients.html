@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todos os Pacientes</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+		/>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Todos os Pacientes</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
+	<body>
+		<div class="container">
+			<h1 class="title">Utentes</h1>
+			<div class="level">
+				<a th:href="@patients/new" class="button is-primary level-right"
+					>Adicionar</a
+				>
+			</div>
 
-<body>
-	<div class="container">
-		<h1 class="title">Utentes</h1>
-		<div class="level">
-			<a th:href="@patients/new" class="button is-primary level-right">Adicionar</a>
+			<table class="table is-widescreen is-hoverable is-striped">
+				<thead>
+					<tr>
+						<th>Nome Próprio</th>
+						<th>Apelido</th>
+						<th>Idade</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="patient: ${patients}">
+						<td th:text="patient.first_name"></td>
+						<td th:text="patient.last_name"></td>
+						<td th:text="patient.age"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-
-		<table class="table is-widescreen is-hoverable is-striped">
-			<thead>
-				<tr>
-					<th>Nome Próprio</th>
-					<th>Apelido</th>
-					<th>Idade</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="patient: ${patients}">
-					<td th:text="patient.first_name"></td>
-					<td th:text="patient.last_name"></td>
-					<td th:text="patient.age"></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</body>
-
+	</body>
 </html>

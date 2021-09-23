@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Adicionar Utente</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
-<body>
-	<div class="container">
-		<div class="card">
-			<header class="card-header">
-				<h2 class="title">Adicionar Novo Utente</h2>
-			</header>
-			<div class="card-content">
-				<form th:action="@{/patients}" th:object="${patient}" method="POST">
-					<div class="field">
-						<label for="firstName" class="label">
-							Nome Próprio
-						</label>
-						<div class="control">
-							<input type="text" name="firstName" th:field="${firstName}" id="firstName" class="input" placeholder="Nome Próprio do Utente..."/>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Adicionar Utente</title>
+		<th:block th:insert="~{base.html :: link}"></th:block>
+	</head>
+	<body>
+		<div class="container">
+			<div class="card">
+				<header class="card-header">
+					<h2 class="title">Adicionar Novo Utente</h2>
+				</header>
+				<div class="card-content">
+					<form
+						th:action="@{/patients}"
+						th:object="${patient}"
+						method="POST"
+					>
+						<div class="field">
+							<label for="firstName" class="label">
+								Nome Próprio
+							</label>
+							<div class="control">
+								<input
+									type="text"
+									name="firstName"
+									th:field="${firstName}"
+									id="firstName"
+									class="input"
+									placeholder="Nome Próprio do Utente..."
+								/>
+							</div>
 						</div>
-					</div>
-					<div class="field">
-						<label for="lastName" class="label">
-							Sobrenome
-						</label>
-						<div class="control">
-							<input type="text" name="lastName" th:field="${lastName}" id="lastName" class="input" placeholder="Sobrenome do Utente..."/>
+						<div class="field">
+							<label for="lastName" class="label">
+								Sobrenome
+							</label>
+							<div class="control">
+								<input
+									type="text"
+									name="lastName"
+									th:field="${lastName}"
+									id="lastName"
+									class="input"
+									placeholder="Sobrenome do Utente..."
+								/>
+							</div>
 						</div>
-					</div>
-					<div class="field">
-						<label for="age" class="label">
-							Idade
-						</label>
-						<div class="control">
-							<input type="text" name="age" th:field="${age}" id="age" class="input" placeholder="Idade do Utente..."/>
+						<div class="field">
+							<label for="age" class="label"> Idade </label>
+							<div class="control">
+								<input
+									type="text"
+									name="age"
+									th:field="${age}"
+									id="age"
+									class="input"
+									placeholder="Idade do Utente..."
+								/>
+							</div>
 						</div>
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<button type="submit" class="button is-primary">Adicionar</button>
+					</form>
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="button is-primary">
+						Adicionar
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>	
-</body>
+	</body>
 </html>
