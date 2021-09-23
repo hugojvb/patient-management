@@ -1,4 +1,4 @@
-package com.hugojvb.models;
+package com.hugojvb.patientmanagement.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,17 +17,17 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "patients")
 public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+	@Column(name = "first_name", nullable = false)
+	private String firstName;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+	@Column(name = "last_name", nullable = false)
+	private String lastName;
 
-    @Column(name = "age", nullable = false)
-    private Integer age;
+	@Column(name = "age", nullable = false)
+	private Integer age;
 }

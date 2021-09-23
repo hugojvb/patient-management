@@ -1,8 +1,8 @@
-package com.hugojvb.services;
-
-import com.hugojvb.models.Patient;
+package com.hugojvb.patientmanagement.services;
 
 import java.util.List;
+
+import com.hugojvb.patientmanagement.models.Patient;
 
 public interface PatientService {
 	List<Patient> getAllPatients();

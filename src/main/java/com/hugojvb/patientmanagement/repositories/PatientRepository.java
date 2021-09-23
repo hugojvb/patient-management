@@ -1,6 +1,6 @@
-package com.hugojvb.repositories;
+package com.hugojvb.patientmanagement.repositories;
 
-import com.hugojvb.models.Patient;
+import com.hugojvb.patientmanagement.models.Patient;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,7 @@
-package com.hugojvb.controllers;
+package com.hugojvb.patientmanagement.controllers;
 
-import com.hugojvb.models.Patient;
-import com.hugojvb.services.PatientService;
+import com.hugojvb.patientmanagement.models.Patient;
+import com.hugojvb.patientmanagement.services.PatientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,26 +9,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @Controller
-@RequestMapping("/patients")
+@AllArgsConstructor
 public class PatientController {
 
 	@Autowired
 	private PatientService patientService;
 
-	@GetMapping
+	@GetMapping("/patients")
 	public String patients(Model model) {
 		model.addAttribute("patients", patientService.getAllPatients());
 
 		return "patients";
 	}
 
-	@GetMapping("/add")
+	@GetMapping("/patients/add")
 	public String addPatient(Model model) {
 		Patient newPatient = new Patient();
 		model.addAttribute("patient", newPatient);

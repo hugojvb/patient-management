@@ -1,10 +1,10 @@
-package com.hugojvb.services.Impl;
+package com.hugojvb.patientmanagement.services.Impl;
 
 import java.util.List;
 
-import com.hugojvb.models.Patient;
-import com.hugojvb.repositories.PatientRepository;
-import com.hugojvb.services.PatientService;
+import com.hugojvb.patientmanagement.models.Patient;
+import com.hugojvb.patientmanagement.repositories.PatientRepository;
+import com.hugojvb.patientmanagement.services.PatientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
