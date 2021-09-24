@@ -24,15 +24,13 @@
 			<table class="table is-fullwidth is-hoverable is-striped">
 				<thead>
 					<tr>
-						<th>Nome Próprio</th>
-						<th>Apelido</th>
+						<th>Nome</th>
 						<th>Idade</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="patient: ${patients}">
-						<td th:text="${patient.firstName}"></td>
-						<td th:text="${patient.lastName}"></td>
+						<td th:text="${patient.name}"></td>
 						<td th:text="${patient.age}"></td>
 					</tr>
 				</tbody>
