@@ -27,15 +27,13 @@
 							method="POST"
 						>
 							<div class="field">
-								<label for="firstName" class="label">
-									Nome
-								</label>
+								<label for="name" class="label"> Nome </label>
 								<div class="control">
 									<input
 										type="text"
-										name="firstName"
-										th:field="*{firstName}"
-										id="firstName"
+										name="name"
+										th:field="*{name}"
+										id="name"
 										class="input is-custom"
 										placeholder="Nome do Utente..."
 										required
@@ -54,6 +52,56 @@
 										placeholder="Idade do Utente..."
 										required
 									/>
+								</div>
+							</div>
+							<div class="field">
+								<label for="scholarity" class="label">
+									Escolaridade
+								</label>
+								<div class="control">
+									<select
+										name="scholarity"
+										id="scholarity"
+										th:field="*{scholarity}"
+										class="select"
+									>
+										<option th:value="0">
+											Ensino Básico
+										</option>
+										<option th:value="1">
+											Segundo/Terceiro Ciclo
+										</option>
+										<option th:value="2">Secundário</option>
+										<option th:value="3">
+											Ensino Superior
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="field">
+								<label for="state" class="label">
+									Estado
+								</label>
+								<div class="control">
+									<select
+										name="state"
+										id="state"
+										class="select"
+										th:field="*{state}"
+									>
+										<option th:value="0">
+											Em Stand By
+										</option>
+										<option th:value="1">
+											Em avaliação
+										</option>
+										<option th:value="2">
+											Em acompanhamento
+										</option>
+										<option th:value="3">
+											Em intervenção
+										</option>
+									</select>
 								</div>
 							</div>
 
