@@ -7,11 +7,25 @@
 	color: #fff;
 }
 
-.is-primary.input {
+.is-custom.input:hover {
 	border-color: var(--primary-color);
 }
 
-.is-primary.button,
-.is-primary.button:hover {
+.is-custom.input:focus {
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 0.125em rgba(255, 145, 0, 0.3);
+}
+
+.is-custom.button {
 	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+}
+
+.is-custom.button:hover {
+	opacity: 0.9;
+}
+
+.is-custom.button:focus {
+	box-shadow: 0 0 0 0.125em rgba(255, 145, 0, 0.3);
 }

@@ -10,7 +10,10 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
-			<a th:href="@{/patients}" class="button is-primary"> Voltar </a>
+			<a th:href="@{/patients}" class="button is-custom">
+				<i class="fas fa-chevron-left mr-2"></i>
+				Voltar
+			</a>
 			<hr />
 			<div class="card">
 				<header class="card-header-title">
@@ -33,7 +36,7 @@
 										name="firstName"
 										th:field="*{firstName}"
 										id="firstName"
-										class="input is-primary"
+										class="input is-custom"
 										placeholder="Nome do Utente..."
 										required
 									/>
@@ -49,7 +52,7 @@
 										name="lastName"
 										th:field="*{lastName}"
 										id="lastName"
-										class="input"
+										class="input is-custom"
 										placeholder="Sobrenome do Utente..."
 										required
 									/>
@@ -63,7 +66,7 @@
 										name="age"
 										th:field="*{age}"
 										id="age"
-										class="input"
+										class="input is-custom"
 										placeholder="Idade do Utente..."
 										required
 									/>
@@ -72,7 +75,7 @@
 							<br />
 							<button
 								type="submit"
-								class="button is-primary card-footer-item"
+								class="button is-custom card-footer-item"
 							>
 								<i class="fa fa-plus mr-2"></i>
 								Adicionar
