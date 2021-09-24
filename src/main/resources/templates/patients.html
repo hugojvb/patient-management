@@ -25,13 +25,26 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>Idade</th>
+						<th align="center">Idade</th>
+						<th align="center">Estado</th>
+						<th align="center">N° de Observações</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="patient: ${patients}">
 						<td th:text="${patient.name}"></td>
-						<td th:text="${patient.age}"></td>
+						<td align="center" th:text="${patient.age}"></td>
+						<td align="center" th:text="${patient.state}"></td>
+						<td align="center" th:text="${patient.state}"></td>
+						<td align="center">
+							<a
+								th:href="@{/patients/${patient.id}}"
+								class="button"
+							>
+								Ficha <i class="fas fa-arrow-right ml-2"></i>
+							</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
