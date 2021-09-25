@@ -1,5 +1,8 @@
 package com.hugojvb.patientmanagement.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +38,7 @@ public class Patient {
 	@Column(name = "scholarity")
 	private Integer scholarity;
 
-	// @OneToMany
-	// private List<Observation> observations;
+	@OneToMany(mappedBy = "patient", cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE,
+			CascadeType.REFRESH })
+	private List<Observation> observations;
 }

@@ -66,13 +66,16 @@
 										class="select"
 									>
 										<option th:value="0">
-											Ensino Básico
+											Analfabeto(a)
 										</option>
 										<option th:value="1">
+											Ensino Básico
+										</option>
+										<option th:value="2">
 											Segundo/Terceiro Ciclo
 										</option>
-										<option th:value="2">Secundário</option>
-										<option th:value="3">
+										<option th:value="3">Secundário</option>
+										<option th:value="4">
 											Ensino Superior
 										</option>
 									</select>
@@ -88,18 +91,17 @@
 										id="state"
 										th:field="*{state}"
 									>
-										<option th:value="0">
-											Em Stand By
-										</option>
+										<option th:value="0">Stand By</option>
 										<option th:value="1">
-											Em avaliação
+											Avaliação Psicológica
 										</option>
 										<option th:value="2">
-											Em acompanhamento
+											Apoio Psicológico
 										</option>
 										<option th:value="3">
-											Em intervenção
+											Acompanhamento Psicológico
 										</option>
+										<option th:value="4">Terminado</option>
 									</select>
 								</div>
 							</div>
