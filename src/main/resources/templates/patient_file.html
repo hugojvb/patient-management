@@ -10,12 +10,19 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
-			<div class="level">
-				<a th:href="@{/patients}" class="button is-custom level-left">
-					<i class="fas fa-chevron-left mr-2"></i>
-					Voltar
-				</a>
-			</div>
+			<nav class="breadcrumb">
+				<ul>
+					<li>
+						<a th:href="@{/patients}">Utentes</a>
+					</li>
+					<li class="is-active">
+						<a
+							th:href="@{/patients/{id}(id=${patient.id})}"
+							th:text="${patient.name}"
+						></a>
+					</li>
+				</ul>
+			</nav>
 			<hr />
 
 			<div class="card">

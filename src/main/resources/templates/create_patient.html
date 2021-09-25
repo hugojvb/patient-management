@@ -10,10 +10,16 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
-			<a th:href="@{/patients}" class="button is-custom">
-				<i class="fas fa-chevron-left mr-2"></i>
-				Voltar
-			</a>
+			<nav class="breadcrumb">
+				<ul>
+					<li>
+						<a th:href="@{/patients}">Utentes</a>
+					</li>
+					<li class="is-active">
+						<a href="" th:text="Adicionar"></a>
+					</li>
+				</ul>
+			</nav>
 			<hr />
 			<div class="card">
 				<header class="card-header-title">
