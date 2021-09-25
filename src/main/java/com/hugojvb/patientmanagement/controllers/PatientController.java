@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.AllArgsConstructor;
@@ -42,10 +43,24 @@ public class PatientController {
 		return "redirect:/patients";
 	}
 
-	@GetMapping("/edit/{id}")
+	@GetMapping("/{id}/edit")
 	public String editPatient(@PathVariable Long id, Model model) {
 		model.addAttribute("patient", patientService.getPatientById(id));
 		return "edit_patient";
+	}
+
+	@PostMapping("/{id}")
+	public String updatePatient(@PathVariable Long id, @ModelAttribute("patient") Patient patient, Model model) {
+		Patient patientToUpdate = patientService.getPatientById(id);
+		patientToUpdate.setId(patient.getId());
+		patientToUpdate.setAge(patient.getAge());
+		patientToUpdate.setName(patient.getName());
+		patientToUpdate.setScholarity(patient.getScholarity());
+		patientToUpdate.setState(patient.getState());
+		patientToUpdate.setObservations(patient.getObservations());
+
+		patientService.updatePatient(patientToUpdate);
+		return "redirect:/patients/{id}";
 	}
 
 }
