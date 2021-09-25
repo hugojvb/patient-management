@@ -9,7 +9,9 @@ public interface PatientService {
 
 	Patient savePatient(Patient patient);
 
+	Patient getPatientById(Long id);
+
 	Patient updatePatient(Patient patient);
 
-	Patient getPatientById(Long id);
+	void deletePatient(Long id);
 }

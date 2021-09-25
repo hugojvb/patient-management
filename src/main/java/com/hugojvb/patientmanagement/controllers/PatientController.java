@@ -69,4 +69,9 @@ public class PatientController {
 		return "redirect:/patients/{id}";
 	}
 
+	@GetMapping("/{id}/delete")
+	public String deletePatient(@PathVariable Long id) {
+		patientService.deletePatient(id);
+		return "redirect:/patients";
+	}
 }
