@@ -43,13 +43,19 @@ public class PatientController {
 		return "redirect:/patients";
 	}
 
+	@GetMapping("/{id}")
+	public String patientFile(@PathVariable Long id, Model model) {
+		model.addAttribute("patient", patientService.getPatientById(id));
+		return "patient_file";
+	}
+
 	@GetMapping("/{id}/edit")
 	public String editPatient(@PathVariable Long id, Model model) {
 		model.addAttribute("patient", patientService.getPatientById(id));
 		return "edit_patient";
 	}
 
-	@PostMapping("/{id}")
+	@PutMapping("/{id}")
 	public String updatePatient(@PathVariable Long id, @ModelAttribute("patient") Patient patient, Model model) {
 		Patient patientToUpdate = patientService.getPatientById(id);
 		patientToUpdate.setId(patient.getId());

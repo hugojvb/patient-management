@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Editar Utente</title>
+		<th:block th:insert="~{base.html :: link}"></th:block>
+	</head>
+	<body>
+		<div th:replace="~{base.html :: navbar}"></div>
+		<div class="container">
+			<div class="level">
+				<a th:href="@{/patients}" class="button is-custom level-left">
+					<i class="fas fa-chevron-left mr-2"></i>
+					Voltar
+				</a>
+			</div>
+			<hr />
+
+			<div class="card">
+				<div class="card-content">
+					<div class="level">
+						<div class="level-left">
+							<h2
+								class="title level-item"
+								th:text="${patient.name}"
+							></h2>
+						</div>
+						<div class="level-right">
+							<a
+								th:href="@{/patients/{id}/edit(id=${patient.id})}"
+								class="button is-light level-item"
+							>
+								<i class="fas fa-pencil-alt mr-2"></i>
+								Editar
+							</a>
+							<a
+								th:href="@{/patients/{id}(id=${patient.id})/edit}"
+								class="button is-danger is-inverted level-item"
+							>
+								<i class="fas fa-pencil-alt mr-2"></i>
+								Apagar
+							</a>
+						</div>
+					</div>
+					<div class="content">
+						<div class="field">
+							<label for="name" class="label"> Nome </label>
+						</div>
+						<div class="field">
+							<label for="age" class="label"> Idade </label>
+						</div>
+						<div class="field">
+							<label for="scholarity" class="label">
+								Escolaridade
+							</label>
+						</div>
+						<div class="field">
+							<label for="state" class="label"> Estado </label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
