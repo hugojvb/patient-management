@@ -39,7 +39,7 @@
 						<td align="center" th:text="${patient.state}"></td>
 						<td align="center">
 							<a
-								th:href="@{/patients(id=${patient.id})}"
+								th:href="@{/patients/{id}(id=${patient.id})}"
 								class="button"
 							>
 								Ficha <i class="fas fa-arrow-right ml-2"></i>

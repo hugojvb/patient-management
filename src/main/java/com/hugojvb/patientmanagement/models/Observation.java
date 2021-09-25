@@ -24,9 +24,9 @@ public class Observation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Integer id;
+	private Long id;
 
-	@Column(name = "obervation")
+	@Column(name = "observation")
 	private String observation;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })

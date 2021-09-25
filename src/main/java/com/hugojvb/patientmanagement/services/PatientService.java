@@ -8,4 +8,8 @@ public interface PatientService {
 	List<Patient> getAllPatients();
 
 	Patient savePatient(Patient patient);
+
+	Patient updatePatient(Patient patient);
+
+	Patient getPatientById(Long id);
 }
