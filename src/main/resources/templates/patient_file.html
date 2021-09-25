@@ -51,20 +51,98 @@
 							</a>
 						</div>
 					</div>
+					<hr />
 					<div class="content">
-						<div class="field">
-							<label for="name" class="label"> Nome </label>
-						</div>
-						<div class="field">
-							<label for="age" class="label"> Idade </label>
-						</div>
-						<div class="field">
-							<label for="scholarity" class="label">
-								Escolaridade
-							</label>
-						</div>
-						<div class="field">
-							<label for="state" class="label"> Estado </label>
+						<div class="columns">
+							<div class="column is-one-third">
+								<div class="columns">
+									<div class="column is-one-half">
+										<p for="name" class="label">Nome</p>
+
+										<p for="age" class="label">Idade</p>
+										<p for="scholarity" class="label">
+											Escolaridade
+										</p>
+
+										<p for="state" class="label">Estado</p>
+									</div>
+									<div class="column is-one-half">
+										<p for="name" th:text="${patient.name}">
+											Nome
+										</p>
+
+										<p for="age" th:text="${patient.age}">
+											Idade
+										</p>
+										<p
+											for="scholarity"
+											th:text="${patient.scholarity}"
+										>
+											Escolaridade
+										</p>
+
+										<p
+											for="state"
+											th:text="${patient.state}"
+										>
+											Estado
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="column is-two-thirds">
+								<h3 class="title has-text-grey">Registos</h3>
+								<table
+									class="
+										table
+										is-fullwidth is-hoverable is-striped
+									"
+								>
+									<thead>
+										<tr>
+											<th>Observação</th>
+											<th align="center">
+												Data de criação
+											</th>
+											<th align="center">
+												Data de modificação
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="patient: ${patients}">
+											<td th:text="${patient.name}"></td>
+											<td
+												align="center"
+												th:text="${patient.age}"
+											></td>
+											<td
+												align="center"
+												th:text="${patient.state}"
+											></td>
+											<td
+												align="center"
+												th:text="${patient.state}"
+											></td>
+											<td align="center">
+												<a
+													th:href="@{/patients/{id}(id=${patient.id})}"
+													class="button"
+												>
+													Ficha
+													<i
+														class="
+															fas
+															fa-id-badge
+															ml-3
+														"
+													></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
