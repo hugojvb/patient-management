@@ -1,5 +1,7 @@
 package com.hugojvb.patientmanagement.models;
 
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,6 +33,9 @@ public class Observation {
 	@JoinColumn(name = "patient_id")
 	private Patient patient;
 
-	// date of creation
-	// date of modification
+	@Column(name = "creation_date")
+	private Timestamp creationDate;
+
+	@Column(name = "modification_date")
+	private Timestamp modificationDate;
 }
