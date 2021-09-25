@@ -37,7 +37,7 @@
 						<div class="level-right">
 							<a
 								th:href="@{/patients/{id}/edit(id=${patient.id})}"
-								class="button is-light level-item"
+								class="button is-dark is-inverted level-item"
 							>
 								<i class="fas fa-pencil-alt mr-2"></i>
 								Editar
@@ -46,7 +46,7 @@
 								th:href="@{/patients/{id}/delete(id=${patient.id})}"
 								class="button is-danger is-inverted level-item"
 							>
-								<i class="fas fa-pencil-alt mr-2"></i>
+								<i class="fas fa-trash-alt mr-2"></i>
 								Apagar
 							</a>
 						</div>
@@ -57,14 +57,32 @@
 							<div class="column is-one-third">
 								<div class="columns">
 									<div class="column is-one-half">
-										<p for="name" class="label">Nome</p>
+										<p
+											for="name"
+											class="has-text-weight-bold"
+										>
+											Nome
+										</p>
 
-										<p for="age" class="label">Idade</p>
-										<p for="scholarity" class="label">
+										<p
+											for="age"
+											class="has-text-weight-bold"
+										>
+											Idade
+										</p>
+										<p
+											for="scholarity"
+											class="has-text-weight-bold"
+										>
 											Escolaridade
 										</p>
 
-										<p for="state" class="label">Estado</p>
+										<p
+											for="state"
+											class="has-text-weight-bold"
+										>
+											Estado
+										</p>
 									</div>
 									<div class="column is-one-half">
 										<p for="name" th:text="${patient.name}">
@@ -91,7 +109,30 @@
 								</div>
 							</div>
 							<div class="column is-two-thirds">
-								<h3 class="title has-text-grey">Registos</h3>
+								<div class="level">
+									<div class="left-left">
+										<h3
+											class="
+												subtitle
+												has-text-grey
+												level-item
+											"
+										>
+											Registos
+										</h3>
+									</div>
+									<div class="left-right">
+										<a
+											th:href="@{/patients/{id}/observations/add(id=${patient.id})}"
+											class="
+												button
+												is-small is-light is-inverted
+											"
+											><i class="fas fa-plus mr-2"></i>
+											Registo</a
+										>
+									</div>
+								</div>
 								<table
 									class="
 										table
