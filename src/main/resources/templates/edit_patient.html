@@ -32,7 +32,7 @@
 				<div class="card-content">
 					<div class="content">
 						<form
-							th:action="@{/patients}"
+							th:action="@{/patients/{id}(id=${patient.id})}"
 							th:object="${patient}"
 							method="POST"
 						>

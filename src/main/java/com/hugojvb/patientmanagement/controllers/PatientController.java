@@ -55,10 +55,10 @@ public class PatientController {
 		return "edit_patient";
 	}
 
-	@PutMapping("/{id}")
-	public String updatePatient(@PathVariable Long id, @ModelAttribute("patient") Patient patient, Model model) {
+	@PostMapping("/{id}")
+	public String updatePatient(@PathVariable Long id, @ModelAttribute("patient") Patient patient) {
 		Patient patientToUpdate = patientService.getPatientById(id);
-		patientToUpdate.setId(patient.getId());
+		patientToUpdate.setId(id);
 		patientToUpdate.setAge(patient.getAge());
 		patientToUpdate.setName(patient.getName());
 		patientToUpdate.setScholarity(patient.getScholarity());
