@@ -34,7 +34,7 @@
 				<div class="card-content">
 					<div class="content">
 						<form
-							th:action="@{/patients/{id}/observations(id=${observation.patient.id})}"
+							th:action="@{/patients/{id}/observations/{observationId}(id=${observation.patient.id}, observationId=${observation.id})}"
 							th:object="${observation}"
 							method="POST"
 						>
@@ -45,8 +45,8 @@
 								<div class="control">
 									<input
 										type="date"
-										th:field="*{creationDate}"
-										id="creationDate"
+										th:field="*{modificationDate}"
+										id="modificationDate"
 										class="input is-custom"
 										placeholder="Data do Registo..."
 										required
@@ -74,8 +74,8 @@
 								type="submit"
 								class="button is-custom card-footer-item"
 							>
-								<i class="fa fa-plus mr-2"></i>
-								Adicionar
+								<i class="fa fa-save mr-2"></i>
+								Guardar
 							</button>
 						</form>
 					</div>

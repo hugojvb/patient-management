@@ -51,7 +51,7 @@ public class ObservationController {
 		observationToUpdate.setNote(observation.getNote());
 		observationToUpdate.setCreationDate(observation.getCreationDate());
 		observationToUpdate.setModificationDate(observation.getModificationDate());
-		observationToUpdate.setPatient(observation.getPatient());
+		observationToUpdate.setPatient(patientService.getPatientById(id));
 
 		observationService.updateObservation(observationToUpdate);
 		return "redirect:/patients/{id}";
