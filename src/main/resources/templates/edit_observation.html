@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Editar Registo | Registo de Utentes</title>
+		<th:block th:insert="~{base.html :: link}"></th:block>
+	</head>
+	<body>
+		<div th:replace="~{base.html :: navbar}"></div>
+		<div class="container">
+			<nav class="breadcrumb">
+				<ul>
+					<li>
+						<a th:href="@{/patients}">Utentes</a>
+					</li>
+					<li>
+						<a
+							th:href="@{/patients/{id}(id=${observation.patient.id})}"
+							th:text="${observation.patient.name}"
+						></a>
+					</li>
+					<li class="is-active">
+						<a href="">Editar Registo</a>
+					</li>
+				</ul>
+			</nav>
+			<hr />
+			<div class="card">
+				<header class="card-header-title">
+					<h2 class="title">Editar Registo</h2>
+				</header>
+				<div class="card-content">
+					<div class="content">
+						<form
+							th:action="@{/patients/{id}/observations(id=${observation.patient.id})}"
+							th:object="${observation}"
+							method="POST"
+						>
+							<div class="field">
+								<label for="date" class="label">
+									Data
+								</label>
+								<div class="control">
+									<input
+										type="date"
+										th:field="*{creationDate}"
+										id="creationDate"
+										class="input is-custom"
+										placeholder="Data do Registo..."
+										required
+									></input>
+								</div>
+							</div>
+							<div class="field">
+								<label for="name" class="label">
+									Registo
+								</label>
+								<div class="control">
+									<textarea
+										th:field="*{note}"
+										id="note"
+										class="textarea is-custom"
+										placeholder="Notas e observações a registar..."
+										required
+										rows="10"
+									></textarea>
+								</div>
+							</div>
+
+							<br />
+							<button
+								type="submit"
+								class="button is-custom card-footer-item"
+							>
+								<i class="fa fa-plus mr-2"></i>
+								Adicionar
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
