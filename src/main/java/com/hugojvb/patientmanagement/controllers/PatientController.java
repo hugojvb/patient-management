@@ -25,7 +25,6 @@ public class PatientController {
 	@GetMapping
 	public String patients(Model model) {
 		model.addAttribute("patients", patientService.getAllPatients());
-
 		return "patients";
 	}
 

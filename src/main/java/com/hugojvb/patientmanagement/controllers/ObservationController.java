@@ -21,6 +21,6 @@ public class ObservationController {
 		Observation newObservation = new Observation();
 		newObservation.setPatient(patientService.getPatientById(id));
 		model.addAttribute("observation", newObservation);
-		return "add_observation";
+		return "create_observation";
 	}
 }
