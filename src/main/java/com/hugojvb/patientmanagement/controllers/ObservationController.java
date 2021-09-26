@@ -36,4 +36,12 @@ public class ObservationController {
 		observationService.saveObservation(newObservation);
 		return "redirect:/patients/{id}";
 	}
+
+	@GetMapping("/patients/{id}/observations/{observationId}/edit")
+	public String editObservation(@PathVariable Long id, @PathVariable Long observationId, Model model) {
+		// Observation newObservation = new Observation();
+		// newObservation.setPatient(patientService.getPatientById(id));
+		// model.addAttribute("newObservation", newObservation);
+		return "edit_observation";
+	}
 }

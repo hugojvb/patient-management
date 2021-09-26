@@ -17,4 +17,19 @@ public class ObservationServiceImpl implements ObservationService {
 	public Observation saveObservation(Observation observation) {
 		return observationRepository.save(observation);
 	}
+
+	@Override
+	public Observation updateObservation(Observation observation) {
+		return observationRepository.save(observation);
+	}
+
+	@Override
+	public Observation getObservationById(Long id) {
+		return observationRepository.findById(id).get();
+	}
+
+	@Override
+	public void deleteObservation(Long id) {
+		observationRepository.deleteById(id);
+	}
 }
