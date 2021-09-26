@@ -36,7 +36,10 @@
 						<td th:text="${patient.name}"></td>
 						<td align="center" th:text="${patient.age}"></td>
 						<td align="center" th:text="${patient.state}"></td>
-						<td align="center" th:text="${patient.state}"></td>
+						<td
+							align="center"
+							th:text="${patient.observations.size()}"
+						></td>
 						<td align="center">
 							<a
 								th:href="@{/patients/{id}(id=${patient.id})}"
