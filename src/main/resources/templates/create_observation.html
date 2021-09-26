@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Adicionar Registo</title>
+		<title>Adicionar Registo | Registo de Utentes</title>
 		<th:block th:insert="~{base.html :: link}"></th:block>
 	</head>
 	<body>
@@ -39,6 +39,22 @@
 							method="POST"
 						>
 							<div class="field">
+								<label for="date" class="label">
+									Data
+								</label>
+								<div class="control">
+									<input
+										type="date"
+										th:field="*{creationDate}"
+										id="creationDate"
+										class="input is-custom"
+										placeholder="Data do Registo..."
+										required
+										rows="10"
+									></input>
+								</div>
+							</div>
+							<div class="field">
 								<label for="name" class="label">
 									Registo
 								</label>
@@ -49,6 +65,7 @@
 										class="textarea is-custom"
 										placeholder="Notas e observações a registar..."
 										required
+										rows="10"
 									></textarea>
 								</div>
 							</div>

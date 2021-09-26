@@ -33,3 +33,7 @@
 .has-text-custom {
 	color: var(--primary-color);
 }
+
+.has-custom-background {
+	background-color: var(--primary-color);
+}
