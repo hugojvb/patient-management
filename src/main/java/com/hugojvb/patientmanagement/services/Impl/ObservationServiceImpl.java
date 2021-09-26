@@ -5,7 +5,9 @@ import com.hugojvb.patientmanagement.repositories.ObservationRepository;
 import com.hugojvb.patientmanagement.services.ObservationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ObservationServiceImpl implements ObservationService {
 
 	@Autowired
