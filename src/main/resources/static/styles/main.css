@@ -29,3 +29,7 @@
 .is-custom.button:focus {
 	box-shadow: 0 0 0 0.125em rgba(255, 145, 0, 0.3);
 }
+
+.has-text-custom {
+	color: var(--primary-color);
+}

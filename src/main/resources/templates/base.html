@@ -12,14 +12,29 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" th:href="@{/styles/main.css}" />
+		<link rel="icon" th:href="@{/psi.png}" type="image/png" />
 	</head>
 	<body>
 		<div th:fragment="navbar">
-			<nav class="navbar" role="navigation" aria-label="main navigation">
+			<nav
+				class="navbar is-light"
+				role="navigation"
+				aria-label="main navigation"
+			>
 				<div class="navbar-brand">
 					<a class="navbar-item" href="/">
-						<img th:src="@{/heart.svg}" alt="heart" />
-						<h1 class="title ml-2">Gestão de Utentes</h1>
+						<img th:src="@{/psi.png}" alt="psychology" />
+						<h1
+							class="
+								title
+								ml-2
+								is-4
+								has-text-custom has-text-weight-medium
+							"
+							style="font-family: serif"
+						>
+							Registo de Utentes
+						</h1>
 					</a>
 
 					<a
