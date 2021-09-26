@@ -18,8 +18,6 @@ public class ObservationController {
 
 	@Autowired
 	private PatientService patientService;
-
-	@Autowired
 	private ObservationService observationService;
 
 	@GetMapping("/patients/{id}/observations/add")
@@ -39,9 +37,27 @@ public class ObservationController {
 
 	@GetMapping("/patients/{id}/observations/{observationId}/edit")
 	public String editObservation(@PathVariable Long id, @PathVariable Long observationId, Model model) {
-		// Observation newObservation = new Observation();
-		// newObservation.setPatient(patientService.getPatientById(id));
-		// model.addAttribute("newObservation", newObservation);
+		model.addAttribute("observation", observationService.getObservationById(id));
 		return "edit_observation";
+	}
+
+	@PostMapping("/patients/{id}/observations/{observationId}")
+	public String updateObservation(@PathVariable Long id, @PathVariable Long observationId,
+			@ModelAttribute("observation") Observation observation) {
+		Observation observationToUpdate = observationService.getObservationById(observationId);
+		observationToUpdate.setId(observationId);
+		observationToUpdate.setNote(observation.getNote());
+		observationToUpdate.setCreationDate(observation.getCreationDate());
+		observationToUpdate.setModificationDate(observation.getModificationDate());
+		observationToUpdate.setPatient(observation.getPatient());
+
+		observationService.updateObservation(observationToUpdate);
+		return "redirect:/patients/{id}";
+	}
+
+	@GetMapping("/patients/{id}/observations/{observationId}/delete")
+	public String deleteObservation(@PathVariable Long id, @PathVariable Long observationId) {
+		observationService.deleteObservation(observationId);
+		return "redirect:/patients/{id}";
 	}
 }
