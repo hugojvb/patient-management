@@ -1,7 +1,6 @@
 package com.hugojvb.patientmanagement.controllers;
 
 import com.hugojvb.patientmanagement.models.Observation;
-import com.hugojvb.patientmanagement.models.Patient;
 import com.hugojvb.patientmanagement.services.ObservationService;
 import com.hugojvb.patientmanagement.services.PatientService;
 
@@ -18,6 +17,8 @@ public class ObservationController {
 
 	@Autowired
 	private PatientService patientService;
+
+	@Autowired
 	private ObservationService observationService;
 
 	@GetMapping("/patients/{id}/observations/add")
