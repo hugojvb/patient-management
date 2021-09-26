@@ -17,8 +17,8 @@
 					</li>
 					<li>
 						<a
-							th:href="@{/patients/{id}(id=${observation.patient.id})}"
-							th:text="${observation.patient.name}"
+							th:href="@{/patients/{id}(id=${newObservation.patient.id})}"
+							th:text="${newObservation.patient.name}"
 						></a>
 					</li>
 					<li class="is-active">
@@ -34,8 +34,8 @@
 				<div class="card-content">
 					<div class="content">
 						<form
-							th:action="@{/observations}"
-							th:object="${observation}"
+							th:action="@{/patients/{id}/observations(id=${newObservation.patient.id})}"
+							th:object="${newObservation}"
 							method="POST"
 						>
 							<div class="field">
@@ -50,7 +50,6 @@
 										class="input is-custom"
 										placeholder="Data do Registo..."
 										required
-										rows="10"
 									></input>
 								</div>
 							</div>

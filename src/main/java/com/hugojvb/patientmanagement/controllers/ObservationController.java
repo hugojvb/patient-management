@@ -26,13 +26,13 @@ public class ObservationController {
 	public String addObservation(@PathVariable Long id, Model model) {
 		Observation newObservation = new Observation();
 		newObservation.setPatient(patientService.getPatientById(id));
-		model.addAttribute("observation", newObservation);
+		model.addAttribute("newObservation", newObservation);
 		return "create_observation";
 	}
 
-	@PostMapping("/observation")
-	public String saveObservation(@ModelAttribute("observation") Observation observation) {
-		observationService.saveObservation(observation);
-		return "redirect:/patients/{observation.patient.id}";
+	@PostMapping("/patients/{id}/observations")
+	public String saveObservation(@PathVariable Long id, @ModelAttribute("newObservation") Observation newObservation) {
+		observationService.saveObservation(newObservation);
+		return "redirect:/patients/{id}";
 	}
 }
