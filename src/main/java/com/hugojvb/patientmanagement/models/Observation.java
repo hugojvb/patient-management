@@ -26,8 +26,8 @@ public class Observation {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "observation")
-	private String observation;
+	@Column(name = "note")
+	private String note;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
 	@JoinColumn(name = "patient_id")

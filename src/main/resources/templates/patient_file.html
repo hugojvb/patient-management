@@ -146,13 +146,12 @@
 												Data de modificação
 											</th>
 											<th></th>
-											<th></th>
 
 										</tr>
 									</thead>
 									<tbody>
 										<tr th:each="observation: ${patient.observations}">
-											<td th:text="${observation.observation}"></td>
+											<td th:text="${observation.note}"></td>
 											<td
 												align="center"
 												th:text="${observation.creationDate}"
@@ -161,10 +160,10 @@
 												align="center"
 												th:text="${observation.modificationDate}"
 											></td>
-											<td align="center">
+											<td align="right">
 												<a
-													th:href="@{/patients/{id}(id=${patient.id})}"
-													class="button"
+													th:href="@{/patients/{id}/observations/{observationId}/edit(id=${patient.id},observationId=${observation.id})}"
+													class="button is-inverted is-dark is-rounded"
 												>
 													
 													<i
@@ -174,11 +173,9 @@
 														"
 													></i>
 												</a>
-											</td>
-											<td align="center">
 												<a
-													th:href="@{/patients/{id}(id=${patient.id})}"
-													class="button"
+													th:href="@{/patients/{id}/observations/{observationId}/delete(id=${patient.id},observationId=${observation.id})}"
+													class="button is-inverted is-danger is-rounded"
 												>
 													
 													<i

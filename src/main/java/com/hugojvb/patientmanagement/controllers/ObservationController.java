@@ -32,6 +32,7 @@ public class ObservationController {
 
 	@PostMapping("/patients/{id}/observations")
 	public String saveObservation(@PathVariable Long id, @ModelAttribute("newObservation") Observation newObservation) {
+		newObservation.setPatient(patientService.getPatientById(id));
 		observationService.saveObservation(newObservation);
 		return "redirect:/patients/{id}";
 	}
