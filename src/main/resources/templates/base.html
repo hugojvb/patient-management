@@ -23,11 +23,15 @@
 			>
 				<div class="navbar-brand">
 					<a class="navbar-item" href="/">
-						<img th:src="@{/psi.png}" alt="psychology" />
+						<img
+							th:src="@{/psi.png}"
+							alt="psychology"
+							style="filter: invert(100%)"
+						/>
 						<h1
 							class="
 								title
-								ml-2
+								ml-3
 								is-4
 								has-text-custom has-text-weight-medium
 							"
@@ -55,28 +59,30 @@
 
 					<div class="navbar-end">
 						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link"> Pacientes </a>
+							<a class="navbar-link"> Utentes </a>
 
 							<div class="navbar-dropdown">
 								<a class="navbar-item" th:href="@{/patients}">
 									Ver Todos
 								</a>
+								<hr class="navbar-divider" />
 								<a
 									class="navbar-item"
 									th:href="@{/patients/add}"
 								>
 									Adicionar
 								</a>
-								<hr class="navbar-divider" />
-								<a class="navbar-item"> A decidir </a>
 							</div>
 						</div>
 						<div class="navbar-item">
 							<div class="buttons">
-								<a class="button is-custom">
+								<!-- <a class="button is-custom">
 									<strong>Sign up</strong>
+								</a> -->
+								<a class="button is-light">
+									<i class="fas fa-sign-out-alt mr-2"></i>
+									Sair
 								</a>
-								<a class="button is-light"> Log in </a>
 							</div>
 						</div>
 					</div>

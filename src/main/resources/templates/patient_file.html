@@ -145,34 +145,46 @@
 											<th align="center">
 												Data de modificação
 											</th>
+											<th></th>
+											<th></th>
+
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="patient: ${patients}">
-											<td th:text="${patient.name}"></td>
+										<tr th:each="observation: ${patient.observations}">
+											<td th:text="${observation.observation}"></td>
 											<td
 												align="center"
-												th:text="${patient.age}"
+												th:text="${observation.creationDate}"
 											></td>
 											<td
 												align="center"
-												th:text="${patient.state}"
-											></td>
-											<td
-												align="center"
-												th:text="${patient.state}"
+												th:text="${observation.modificationDate}"
 											></td>
 											<td align="center">
 												<a
 													th:href="@{/patients/{id}(id=${patient.id})}"
 													class="button"
 												>
-													Ficha
+													
 													<i
 														class="
 															fas
-															fa-id-badge
-															ml-3
+															fa-pencil-alt
+														"
+													></i>
+												</a>
+											</td>
+											<td align="center">
+												<a
+													th:href="@{/patients/{id}(id=${patient.id})}"
+													class="button"
+												>
+													
+													<i
+														class="
+															fas
+															fa-trash-alt
 														"
 													></i>
 												</a>
