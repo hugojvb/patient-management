@@ -33,7 +33,7 @@ public class Observation {
 	@JoinColumn(name = "patient_id")
 	private Patient patient;
 
-	@Column(name = "creation_date")
+	@Column(name = "creation_date", nullable = false)
 	private Date creationDate;
 
 	@Column(name = "modification_date")
