@@ -26,14 +26,14 @@ public class Observation {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "note")
+	@Column(name = "note", nullable = false)
 	private String note;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
 	@JoinColumn(name = "patient_id")
 	private Patient patient;
 
-	@Column(name = "creation_date")
+	@Column(name = "creation_date", nullable = false)
 	private Date creationDate;
 
 	@Column(name = "modification_date")

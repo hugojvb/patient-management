@@ -36,8 +36,9 @@ public class ObservationController {
 	}
 
 	@GetMapping("/patients/{id}/observations/{observationId}/edit")
-	public String editObservation(@PathVariable Long id, @PathVariable Long observationId, Model model) {
-		model.addAttribute("observation", observationService.getObservationById(id));
+	public String editObservation(@PathVariable("id") Long id, @PathVariable("observationId") Long observationId,
+			Model model) {
+		model.addAttribute("observation", observationService.getObservationById(observationId));
 		return "edit_observation";
 	}
 
