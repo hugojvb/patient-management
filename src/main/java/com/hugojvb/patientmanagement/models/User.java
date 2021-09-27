@@ -24,6 +24,9 @@ public class User {
 	@Column(name = "Id")
 	private Long id;
 
+	@Column(name = "name")
+	private String name;
+
 	@Column(name = "email")
 	private String email;
 
