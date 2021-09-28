@@ -53,144 +53,140 @@
 					</div>
 					<hr />
 					<div class="content">
-								<div class="columns">
-									<div class="column is-one-half">
-										<p
-											for="name"
-											class="has-text-weight-bold"
-										>
-											Nome
-										</p>
+						<div class="columns">
+							<div class="column is-one-half">
+								<p for="name" class="has-text-weight-bold">
+									Nome
+								</p>
 
-										<p
-											for="age"
-											class="has-text-weight-bold"
-										>
-											Idade
-										</p>
-										<p
-											for="scholarity"
-											class="has-text-weight-bold"
-										>
-											Escolaridade
-										</p>
-
-										<p
-											for="state"
-											class="has-text-weight-bold"
-										>
-											Estado
-										</p>
-									</div>
-									<div class="column is-one-half">
-										<p for="name" th:text="${patient.name}">
-											Nome
-										</p>
-
-										<p for="age" th:text="${patient.age}">
-											Idade
-										</p>
-										<p
-											for="scholarity"
-											th:text="${patient.scholarity}"
-										>
-											Escolaridade
-										</p>
-
-										<p
-											for="state"
-											th:text="${patient.state}"
-										>
-											Estado
-										</p>
-									</div>
-								</div>
-								<hr>
-								<div class="level">
-									<div class="left-left">
-										<h3
-											class="
-												subtitle
-												has-text-grey
-												level-item
-											"
-										>
-											Registos
-										</h3>
-									</div>
-									<div class="left-right">
-										<a
-											th:href="@{/patients/{id}/observations/add(id=${patient.id})}"
-											class="
-												button
-												is-small is-light is-inverted
-											"
-											><i class="fas fa-plus mr-2"></i>
-											Registo</a
-										>
-									</div>
-								</div>
-								<table
-									class="
-										table
-										is-fullwidth is-hoverable is-striped
-									"
+								<p for="age" class="has-text-weight-bold">
+									Idade
+								</p>
+								<p
+									for="scholarity"
+									class="has-text-weight-bold"
 								>
-									<thead>
-										<tr>
-											<th>Observação</th>
-											<th align="center">
-												Data de criação
-											</th>
-											<th align="center">
-												Data de modificação
-											</th>
-											<th></th>
+									Escolaridade
+								</p>
 
-										</tr>
-									</thead>
-									<tbody>
-										<tr th:each="observation: ${patient.observations}">
-											<td th:text="${observation.note}"></td>
-											<td
-												align="center"
-												th:text="${observation.creationDate}"
-											></td>
-											<td
-												align="center"
-												th:text="${observation.modificationDate}"
-											></td>
-											<td align="right">
-												<a
-													th:href="@{/patients/{id}/observations/{observationId}/edit(id=${patient.id},observationId=${observation.id})}"
-													class="button is-inverted is-dark is-rounded"
-												>
-													
-													<i
-														class="
-															fas
-															fa-pencil-alt
-														"
-													></i>
-												</a>
-												<a
-													th:href="@{/patients/{id}/observations/{observationId}/delete(id=${patient.id},observationId=${observation.id})}"
-													class="button is-inverted is-danger is-rounded"
-												>
-													
-													<i
-														class="
-															fas
-															fa-trash-alt
-														"
-													></i>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<p for="state" class="has-text-weight-bold">
+									Estado
+								</p>
+							</div>
+							<div class="column is-one-half">
+								<p for="name" th:text="${patient.name}">Nome</p>
+
+								<p for="age" th:text="${patient.age}">Idade</p>
+
+								<p
+									for="scholarity"
+									th:if="${patient.scholarity == 0}"
+								>
+									Analfabeto(a)
+								</p>
+								<p
+									for="scholarity"
+									th:if="${patient.scholarity == 1}"
+								>
+									Ensino Básico
+								</p>
+								<p
+									for="scholarity"
+									th:if="${patient.scholarity == 2}"
+								>
+									Segundo/Terceiro Ciclo
+								</p>
+								<p
+									for="scholarity"
+									th:if="${patient.scholarity == 3}"
+								>
+									Secundário
+								</p>
+								<p
+									for="scholarity"
+									th:if="${patient.scholarity == 4}"
+								>
+									Ensino Superior
+								</p>
+								<p for="state" th:if="${patient.state == 0}">
+									Stand By
+								</p>
+								<p for="state" th:if="${patient.state == 1}">
+									Avaliação Psicológica
+								</p>
+								<p for="state" th:if="${patient.state == 2}">
+									Apoio Psicológico
+								</p>
+								<p for="state" th:if="${patient.state == 3}">
+									Intervenção Psicológica
+								</p>
+								<p for="state" th:if="${patient.state == 4}">
+									Terminado
+								</p>
 							</div>
 						</div>
+						<hr />
+						<div class="level">
+							<div class="left-left">
+								<h3 class="subtitle has-text-grey level-item">
+									Registos
+								</h3>
+							</div>
+							<div class="left-right">
+								<a
+									th:href="@{/patients/{id}/observations/add(id=${patient.id})}"
+									class="button is-small is-light is-inverted"
+									><i class="fas fa-plus mr-2"></i> Registo</a
+								>
+							</div>
+						</div>
+						<table
+							class="table is-fullwidth is-hoverable is-striped"
+						>
+							<thead>
+								<tr>
+									<th>Observação</th>
+									<th align="center">Data de criação</th>
+									<th align="center">Data de modificação</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr
+									th:each="observation: ${patient.observations}"
+								>
+									<td th:text="${observation.note}"></td>
+									<td
+										align="center"
+										th:text="${observation.creationDate}"
+									></td>
+									<td
+										align="center"
+										th:text="${observation.modificationDate}"
+									></td>
+									<td align="right">
+										<a
+											th:href="@{/patients/{id}/observations/{observationId}/edit(id=${patient.id},observationId=${observation.id})}"
+											class="
+												button
+												is-inverted is-dark is-rounded
+											"
+										>
+											<i class="fas fa-pencil-alt"></i>
+										</a>
+										<a
+											th:href="@{/patients/{id}/observations/{observationId}/delete(id=${patient.id},observationId=${observation.id})}"
+											class="
+												button
+												is-inverted is-danger is-rounded
+											"
+										>
+											<i class="fas fa-trash-alt"></i>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
