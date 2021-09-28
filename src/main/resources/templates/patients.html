@@ -35,7 +35,21 @@
 					<tr th:each="patient: ${patients}">
 						<td th:text="${patient.name}"></td>
 						<td align="center" th:text="${patient.age}"></td>
-						<td align="center" th:text="${patient.state}"></td>
+						<td align="center" th:if="${patient.state == 0}">
+							Stand By
+						</td>
+						<td align="center" th:if="${patient.state == 1}">
+							Avaliação Psicológica
+						</td>
+						<td align="center" th:if="${patient.state == 2}">
+							Apoio Psicológico
+						</td>
+						<td align="center" th:if="${patient.state == 3}">
+							Acompanhamento Psicológico
+						</td>
+						<td align="center" th:if="${patient.state == 4}">
+							Terminado
+						</td>
 						<td
 							align="center"
 							th:text="${patient.observations.size()}"

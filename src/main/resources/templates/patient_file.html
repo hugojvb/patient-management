@@ -55,74 +55,44 @@
 					<div class="content">
 						<div class="columns">
 							<div class="column is-one-half">
-								<p for="name" class="has-text-weight-bold">
-									Nome
-								</p>
+								<p class="has-text-weight-bold">Nome</p>
 
-								<p for="age" class="has-text-weight-bold">
-									Idade
-								</p>
-								<p
-									for="scholarity"
-									class="has-text-weight-bold"
-								>
-									Escolaridade
-								</p>
+								<p class="has-text-weight-bold">Idade</p>
+								<p class="has-text-weight-bold">Escolaridade</p>
 
-								<p for="state" class="has-text-weight-bold">
-									Estado
-								</p>
+								<p class="has-text-weight-bold">Estado</p>
 							</div>
 							<div class="column is-one-half">
-								<p for="name" th:text="${patient.name}">Nome</p>
+								<p th:text="${patient.name}">Nome</p>
 
-								<p for="age" th:text="${patient.age}">Idade</p>
+								<p th:text="${patient.age}">Idade</p>
 
-								<p
-									for="scholarity"
-									th:if="${patient.scholarity == 0}"
-								>
+								<p th:if="${patient.scholarity == 0}">
 									Analfabeto(a)
 								</p>
-								<p
-									for="scholarity"
-									th:if="${patient.scholarity == 1}"
-								>
+								<p th:if="${patient.scholarity == 1}">
 									Ensino Básico
 								</p>
-								<p
-									for="scholarity"
-									th:if="${patient.scholarity == 2}"
-								>
+								<p th:if="${patient.scholarity == 2}">
 									Segundo/Terceiro Ciclo
 								</p>
-								<p
-									for="scholarity"
-									th:if="${patient.scholarity == 3}"
-								>
+								<p th:if="${patient.scholarity == 3}">
 									Secundário
 								</p>
-								<p
-									for="scholarity"
-									th:if="${patient.scholarity == 4}"
-								>
+								<p th:if="${patient.scholarity == 4}">
 									Ensino Superior
 								</p>
-								<p for="state" th:if="${patient.state == 0}">
-									Stand By
-								</p>
-								<p for="state" th:if="${patient.state == 1}">
+								<p th:if="${patient.state == 0}">Stand By</p>
+								<p th:if="${patient.state == 1}">
 									Avaliação Psicológica
 								</p>
-								<p for="state" th:if="${patient.state == 2}">
+								<p th:if="${patient.state == 2}">
 									Apoio Psicológico
 								</p>
-								<p for="state" th:if="${patient.state == 3}">
-									Intervenção Psicológica
+								<p th:if="${patient.state == 3}">
+									Acompanhamento Psicológico
 								</p>
-								<p for="state" th:if="${patient.state == 4}">
-									Terminado
-								</p>
+								<p th:if="${patient.state == 4}">Terminado</p>
 							</div>
 						</div>
 						<hr />
