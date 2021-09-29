@@ -23,6 +23,7 @@ public class UserRegistration {
 
 	@GetMapping
 	public String showRegistrationForm(Model model) {
+		model.addAttribute("user", new UserRegistrationDto());
 		return "registration";
 	}
 
