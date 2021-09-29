@@ -10,13 +10,13 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<div class="container">
+			<div th:if="${param.success}" class="notification is-success">
+				Conta criada com sucesso
+			</div>
 			<div class="card">
 				<header class="card-header-title">
 					<h2 class="title">Criar nova conta</h2>
 				</header>
-				<div th:if="${param.success}" class="notification is-success">
-					Conta criada com sucesso
-				</div>
 				<div class="card-content">
 					<div class="content">
 						<form
