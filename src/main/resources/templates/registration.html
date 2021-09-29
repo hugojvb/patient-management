@@ -20,8 +20,8 @@
 				<div class="card-content">
 					<div class="content">
 						<form
-							th:action="@{/patients}"
-							th:object="${patient}"
+							th:action="@{/registration}"
+							th:object="${user}"
 							method="POST"
 						>
 							<div class="field">
@@ -63,7 +63,7 @@
 										th:field="*{password}"
 										id="password"
 										class="input is-custom"
-										placeholder="Email..."
+										placeholder="Password..."
 										required
 									/>
 								</div>
