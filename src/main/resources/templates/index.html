@@ -11,7 +11,10 @@
 	<body>
 		<div th:replace="~{base.html :: navbar}"></div>
 		<img th:src="@{/images/psi.png}" alt="psychology" style="width: 40%" />
-		<div class="container">Bem vindo(a)</div>
+		<div class="container">
+			Bem vindo(a)
+			<span sec:authentication="principal.username"></span>
+		</div>
 		<a th:href="@{/patients}" class="button is-custom"
 			>Utentes <i class="fas fa-arrow-right ml-2"></i
 		></a>
