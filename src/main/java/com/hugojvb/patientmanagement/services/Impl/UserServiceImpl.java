@@ -8,6 +8,7 @@ import com.hugojvb.patientmanagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,12 +17,15 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
 	@Override
 	public User saveUser(UserRegistrationDto userRegistrationDto) {
 		User newUser = new User();
 		newUser.setName(userRegistrationDto.getName());
 		newUser.setEmail(userRegistrationDto.getEmail());
-		newUser.setPassword(userRegistrationDto.getPassword());
+		newUser.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
 		return userRepository.save(newUser);
 	}
 
