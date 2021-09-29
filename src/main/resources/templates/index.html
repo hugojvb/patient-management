@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registo de Utentes</title>
+		<th:block th:insert="~{base.html :: link}"></th:block>
+	</head>
+
+	<body>
+		<div th:replace="~{base.html :: navbar}"></div>
+		<img th:src="@{/images/psi.png}" alt="psychology" style="width: 40%" />
+		<div class="container">Bem vindo(a)</div>
+		<a th:href="@{/patients}" class="button is-custom"
+			>Utentes <i class="fas fa-arrow-right ml-2"></i
+		></a>
+	</body>
+</html>
