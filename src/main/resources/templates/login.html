@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Entrar | Registo de Utentes</title>
+		<th:block th:insert="~{base.html :: link}"></th:block>
+	</head>
+	<body>
+		<div th:replace="~{base.html :: navbar}"></div>
+		<div class="container">
+			<div th:if="${param.logout}" class="notification is-success">
+				Desconectado com sucesso
+			</div>
+			<div th:if="${param.error}" class="notification is-danger">
+				Email ou password erradas
+			</div>
+			<div class="card">
+				<header class="card-header-title">
+					<h2 class="title">Entrar</h2>
+				</header>
+				<div class="card-content">
+					<div class="content">
+						<form th:action="@{/login}" method="POST">
+							<div class="field">
+								<label for="email" class="label"> Email </label>
+								<div class="control">
+									<input
+										type="email"
+										name="email"
+										id="email"
+										class="input is-custom"
+										placeholder="Email..."
+										required
+									/>
+								</div>
+							</div>
+							<div class="field">
+								<label for="password" class="label">
+									Password
+								</label>
+								<div class="control">
+									<input
+										type="password"
+										name="password"
+										id="password"
+										class="input is-custom"
+										placeholder="Password..."
+										required
+									/>
+								</div>
+							</div>
+
+							<br />
+							<button
+								type="submit"
+								class="button is-custom card-footer-item"
+							>
+								<i class="fa fa-lock mr-2"></i>
+								Entrar
+							</button>
+							<br />
+							<span>
+								<a
+									class="has-text-custom"
+									th:href="@{/registration}"
+									>Novo utilizador? Criar conta.</a
+								>
+							</span>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
