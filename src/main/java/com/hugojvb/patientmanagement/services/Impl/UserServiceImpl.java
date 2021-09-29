@@ -6,6 +6,8 @@ import com.hugojvb.patientmanagement.repositories.UserRepository;
 import com.hugojvb.patientmanagement.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,5 +23,14 @@ public class UserServiceImpl implements UserService {
 		newUser.setEmail(userRegistrationDto.getEmail());
 		newUser.setPassword(userRegistrationDto.getPassword());
 		return userRepository.save(newUser);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByEmail(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("invalid email or password");
+		}
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), null);
 	}
 }
