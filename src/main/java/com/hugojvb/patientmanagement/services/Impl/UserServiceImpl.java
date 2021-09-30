@@ -1,7 +1,6 @@
 package com.hugojvb.patientmanagement.services.Impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import com.hugojvb.patientmanagement.dto.UserRegistrationDto;
 import com.hugojvb.patientmanagement.models.User;
@@ -24,8 +23,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	List<GrantedAuthority> role_name = new ArrayList<>();
-
 	@Override
 	public User saveUser(UserRegistrationDto userRegistrationDto) {
 		User newUser = new User();
@@ -41,6 +38,7 @@ public class UserServiceImpl implements UserService {
 		if (user == null) {
 			throw new UsernameNotFoundException("invalid email or password");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), role_name);
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				new HashSet<GrantedAuthority>());
 	}
 }
