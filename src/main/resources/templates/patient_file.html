@@ -45,6 +45,8 @@
 							<a
 								th:href="@{/patients/{id}/delete(id=${patient.id})}"
 								class="button is-danger is-inverted level-item"
+								th:data-confirm-delete="|Tem a certeza que quer apagar este utente?|"
+								onclick="return confirm(this.getAttribute('data-confirm-delete'))"
 							>
 								<i class="fas fa-trash-alt mr-2"></i>
 								Apagar
@@ -150,6 +152,8 @@
 												button
 												is-inverted is-danger is-rounded
 											"
+											th:data-confirm-delete="|Tem a certeza que quer apagar este registo?|"
+											onclick="return confirm(this.getAttribute('data-confirm-delete'))"
 										>
 											<i class="fas fa-trash-alt"></i>
 										</a>
