@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
 				new HashSet<GrantedAuthority>());
 	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
 }

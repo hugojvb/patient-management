@@ -1,9 +1,14 @@
 package com.hugojvb.patientmanagement.controllers;
 
 import com.hugojvb.patientmanagement.models.Patient;
+import com.hugojvb.patientmanagement.models.User;
 import com.hugojvb.patientmanagement.services.PatientService;
+import com.hugojvb.patientmanagement.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +27,9 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping
 	public String patients(Model model) {
 		model.addAttribute("patients", patientService.getAllPatients());
@@ -36,7 +44,11 @@ public class PatientController {
 	}
 
 	@PostMapping
-	public String savePatient(@ModelAttribute("patient") Patient patient) {
+	public String savePatient(@ModelAttribute("patient") Patient patient, @AuthenticationPrincipal User user) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+
+		patient.setUser(userService.getUserByEmail(email));
 		patientService.savePatient(patient);
 		return "redirect:/patients";
 	}
