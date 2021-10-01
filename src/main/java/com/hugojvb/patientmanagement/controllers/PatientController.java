@@ -44,7 +44,7 @@ public class PatientController {
 	}
 
 	@PostMapping
-	public String savePatient(@ModelAttribute("patient") Patient patient, @AuthenticationPrincipal User user) {
+	public String savePatient(@ModelAttribute("patient") Patient patient) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
 
