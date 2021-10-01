@@ -3,10 +3,14 @@ package com.hugojvb.patientmanagement.services.Impl;
 import java.util.List;
 
 import com.hugojvb.patientmanagement.models.Patient;
+import com.hugojvb.patientmanagement.models.User;
 import com.hugojvb.patientmanagement.repositories.PatientRepository;
 import com.hugojvb.patientmanagement.services.PatientService;
+import com.hugojvb.patientmanagement.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -18,9 +22,16 @@ public class PatientServiceImpl implements PatientService {
 	@Autowired
 	private PatientRepository patientRepository;
 
+	@Autowired
+	private UserService userService;
+
 	@Override
 	public List<Patient> getAllPatients() {
-		return patientRepository.findAll();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		User user = userService.getUserByEmail(email);
+
+		return patientRepository.findAllByUserId(user.getId());
 	}
 
 	@Override
