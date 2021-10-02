@@ -120,7 +120,7 @@
 									<th>Observação</th>
 									<th align="center">Data de criação</th>
 									<th align="center">Data de modificação</th>
-									<th></th>
+									<th>Ações</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -135,8 +135,10 @@
 									<td
 										align="center"
 										th:text="${observation.modificationDate}"
-									></td>
-									<td align="right">
+									>
+										-
+									</td>
+									<td align="center">
 										<a
 											th:href="@{/patients/{id}/observations/{observationId}/edit(id=${patient.id},observationId=${observation.id})}"
 											class="
@@ -157,6 +159,16 @@
 										>
 											<i class="fas fa-trash-alt"></i>
 										</a>
+									</td>
+								</tr>
+								<tr th:if="${patient.observations.size() == 0}">
+									<td align="center" colspan="4">
+										<h3
+											class="is-size-3"
+											style="margin-top: 2em"
+										>
+											Sem Registos
+										</h3>
 									</td>
 								</tr>
 							</tbody>
