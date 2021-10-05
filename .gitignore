@@ -33,3 +33,5 @@ build/
 .vscode/
 
 NOTAS.md
+bfg*
+properties.txt
